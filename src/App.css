@@ -30,3 +30,34 @@
 	padding: 10px;
 	margin-bottom: 10px;
 }
+.drag-drop-box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 5px black dashed;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.drag-drop-box:hover {
+	cursor: pointer;
+}
+.drag-drop-box span {
+	margin-left: 10px;
+}
+.drag-drop-box input[type="file"] {
+	display: none;
+}
+.over {
+	opacity: 0.5;
+}
+.center {
+	text-align: center;
+}
+.icpassport-preview {
+	text-align: center;
+	overflow: auto;
+}
+.icpassport-preview img {
+	max-width: 400px;
+	height: auto;
+}
