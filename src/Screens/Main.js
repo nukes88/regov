@@ -12,6 +12,12 @@ export default function Main() {
             <HeaderWithUser
                 title="Main"
             />
+            <Row>
+                <Col>
+                    Welcome!<br />
+                    Click on LOGIN to begin.
+                </Col>
+            </Row>
         </>
 
     )

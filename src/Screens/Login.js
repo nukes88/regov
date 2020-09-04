@@ -19,7 +19,7 @@ export default function Login() {
             setError('');
             setIsLoading(true);
             if (!await user.login(username)) {
-                throw new Error('Could not login!');
+                throw new Error('Could not login! Have you registered?');
             }
         } catch (e) {
             setError(e.message);

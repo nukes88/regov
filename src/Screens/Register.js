@@ -132,8 +132,9 @@ export default function Register() {
                 }
                 {
                     success ? <>
-                        <Alert variant="success" className="center">You have successfully registered!</Alert>
-                        <Link to="/inside">Lets go inside!</Link>
+                        <Alert variant="success" className="center">
+                            You have successfully registered! <Link to="/inside">Lets go inside!</Link>
+                        </Alert>
                     </> : null
                 }
                 {

@@ -37,12 +37,13 @@ function useUser() {
                 // })
             })
             if (res.ok) {
-                sessionStorage.setItem(keyStore_username, _username);
-                sessionStorage.setItem(keyStore_isAuth, true);
-                setUsername(_username);
-                setIsAuth(true);
+                if (username === _username) {
+                    hydrate();
+                    setIsAuth(true);
+                } else {
+                    throw new Error('User not found!')
+                }
             } else {
-                console.log(res);
                 throw new Error(res.statusText)
             }
         } catch (e) {
@@ -51,10 +52,16 @@ function useUser() {
         }
     }
 
+    function hydrate() {
+        if (registrationDetails !== null) {
+            setUsername(registrationDetails.username);
+            setCallsign(registrationDetails.callsign);
+            setIcpassport(registrationDetails.icpassport);
+        }
+    }
+
     function logout() {
         sessionStorage.setItem(keyStore_isAuth, false);
-        sessionStorage.setItem(keyStore_username, null);
-        setUsername(defaultUsername);
         setIsAuth(false);
     }
 
