@@ -21,7 +21,7 @@ export default function Inside() {
                 </Col>
             </Row>
             <hr />
-            <h3>Your Submissions</h3>
+            <h3>Your Submission</h3>
             <Row>
                 <Col>
                     <Form.Group>

@@ -118,7 +118,6 @@ export default function Register() {
                     }
                     <Form.Control
                         type="text"
-                        value={icpassportFile}
                         style={{ display: 'none' }}
                         isInvalid={formValidated && icpassportFile === null}
                     />

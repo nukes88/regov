@@ -29,7 +29,8 @@ export default function Login() {
     }
 
     function handleUsernameChange(evt) {
-        setUsername(evt.target.value);
+        let _username = evt.target.value.replace(/[^a-zA-Z ]/, '');
+        setUsername(_username);
     }
 
     function handleKeyDown(evt) {

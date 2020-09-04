@@ -41,10 +41,10 @@ function AppWithRouter() {
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="mr-auto">
-							<Nav.Link><Link to="/main">Main</Link></Nav.Link>
+							<Nav.Link as={Link} to="/main">Main</Nav.Link>
 							{
-								user.isAuth === true ? <Nav.Link>
-									<Link to="/inside">Inside</Link>
+								user.isAuth === true ? <Nav.Link as={Link} to="/inside">
+									Inside
 								</Nav.Link> : null
 							}
 						</Nav>
