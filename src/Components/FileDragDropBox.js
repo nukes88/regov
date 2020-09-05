@@ -68,13 +68,11 @@ export default function FileDragDropBox({ multiFile, acceptedFileTypes, setFilte
     }, [files])
 
     function handleDragOver(evt) {
-        console.log('over')
         setOverClass('over');
         stopDefault(evt);
     }
 
     function handleDragLeave(evt) {
-        console.log('leave')
         setOverClass('');
         stopDefault(evt);
     }

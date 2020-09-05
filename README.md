@@ -8,6 +8,13 @@
 ## Instructions
 Run `yarn` to install dependencies then `yarn start`
 
+OR
+
+Go to [hosted-site](https://regov.hostman.site/), the site is hosted here for free. Used [hostman](https://hostman.com/)
+
+## Notes
+The app uses sessionStorage instead of localStorage. Data should persist through page refreshes but not on page closing.
+
 # Design Doc
 ## Overview
 This Regov demo is to allow a user to register themselves. Login/logout based on the username chosen. Once logged in, the user will be able to see their registration details.

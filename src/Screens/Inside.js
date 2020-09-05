@@ -8,7 +8,6 @@ export default function Inside() {
 
     const user = UserContainer.useContainer();
 
-    // let { username , callsign, icpassportFile } = user.registrationDetails;
     let [isLoading, setIsLoading] = useState(false);
     let [error, setError] = useState('');
 

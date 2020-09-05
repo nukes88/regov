@@ -34,9 +34,7 @@ export default function Register() {
     }
 
     function createPhotoObjectUrl(file) {
-        console.log(file);
-
-        setIcpassportFile(URL.createObjectURL(file))
+        setIcpassportFile(file)
     }
 
     function checkFormOK() {
@@ -144,7 +142,7 @@ export default function Register() {
                         {
                             icpassportFile ? <div className="icpassport-preview">
                                 <img
-                                    src={icpassportFile}
+                                    src={URL.createObjectURL(icpassportFile)}
                                     alt="Placeholder"
                                     data-testid="file-preview"
                                 />
