@@ -15,7 +15,9 @@ export default function Main() {
             <Row>
                 <Col>
                     Welcome!<br />
-                    Click on LOGIN to begin.
+                    {
+                        user.isAuth ? `You've logged in! Check out Inside from the menu!` : <>Click on LOGIN to begin!<br />If you've already registered, you can login using the username you've chosen.</>
+                    }
                 </Col>
             </Row>
         </>

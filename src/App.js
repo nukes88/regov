@@ -4,7 +4,6 @@ import {
 	Switch,
 	Route,
 	Redirect,
-	NavLink,
 	Link
 } from 'react-router-dom';
 
@@ -17,6 +16,8 @@ import Login from './Screens/Login';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import Inside from './Screens/Inside';
 import Register from './Screens/Register';
+
+import logo from './Assets/regov.jpg';
 
 function AuthRoute({ children, ...props }) {
 
@@ -37,7 +38,14 @@ function AppWithRouter() {
 		<Container>
 			<Router>
 				<Navbar expand="lg">
-					<Navbar.Brand>Regov Demo</Navbar.Brand>
+					<Navbar.Brand>
+						<img 
+							src={logo}
+							alt=""
+							className="navbar-brand-logo"
+						/>
+						<span className="navbar-brand-name">Regov Demo</span>
+					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="mr-auto">

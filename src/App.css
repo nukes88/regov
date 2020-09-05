@@ -61,3 +61,18 @@
 	max-width: 400px;
 	height: auto;
 }
+.toast {
+	position: absolute;
+	right: 0;
+}
+.toast-logo {
+	width: 30px;
+	margin-right: 10px;
+}
+.navbar-brand-logo {
+	width: 100px;
+	margin-right: 10px;
+}
+.navbar-brand-name {
+	font-weight: bold;
+}
