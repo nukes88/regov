@@ -109,6 +109,7 @@ export default function Register() {
                             onChange={handleUsernameChange}
                             placeholder="Enter your desired username"
                             isInvalid={formValidated && username === ''}
+                            data-testid="username-field"
                         />
                         <Form.Control.Feedback type="invalid">
                             Please provide a username!
@@ -145,6 +146,7 @@ export default function Register() {
                                 <img
                                     src={icpassportFile}
                                     alt="Placeholder"
+                                    data-testid="file-preview"
                                 />
                             </div> : null
                         }

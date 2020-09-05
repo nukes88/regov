@@ -14,9 +14,9 @@ export default function UserLoginCard() {
 
     return (
         <div className="user-login-div">
-            <div className="user-login-card">
+            <div className="user-login-card" data-testid="login-card">
                 {
-                    user.isAuth === true ? <>
+                    user.isUserAuthenticated() ? <>
                         <span className="greeting">
                             Hi, <span className="name">{user.username}</span>!
                         </span>

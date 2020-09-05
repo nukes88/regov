@@ -39,7 +39,7 @@ export default function Login() {
         }
     }
 
-    if (user.isAuth === true) {
+    if (user.isUserAuthenticated()) {
         return (
             <Redirect to="/inside" />
         )
@@ -71,6 +71,7 @@ export default function Login() {
                         text="login"
                         clickFunc={handleLogin}
                         toUpper={true}
+                        data-testid="register-button"
                     />
             }
         </>

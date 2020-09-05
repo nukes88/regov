@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Regov Demo
+* This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* Used [react-router](https://reactrouter.com/) for routing
+* Used [unstated-next](https://github.com/jamiebuilds/unstated-next) for state management
+* Used [react-bootstrap](https://react-bootstrap.github.io/) for layout components
+* Used [font-awesome](https://fontawesome.com/how-to-use/on-the-web/using-with/react) for some icons
 
-## Available Scripts
+# Design Spec
+## Overview
+This Regov demo is to allow a user to register themselves. Login/logout based on the username chosen. Once logged in, the user will be able to see their registration details.
 
-In the project directory, you can run:
+## Scenarios
+* User lands on the main page, seeing the description will be guided to the Login screen. Once there, the user can enter a username (no password is necessary) to login. However, the site will check for a similar username in their storage before allowing authentication. So, the user will have to register. A link to the registration page will be available. The user will enter the details required on the registration page including their IC/Passport photo. A preview will be displayed for any image file uploaded (only the typical 3 image files: jpeg, png and gif are allowed). Once registered, the user will be prompted with a notification to a link to the Inside page, where it loads the user's submission.
 
-### `yarn start`
+* User navigates to the Inside page, but as the user has yet to login, the site will direct the user to the Login screen instead, where they are able to Login or Register themselves following the scenario detailed before.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Non Goals
+* The site will only support 1 submission
+* The site will only support 1 user
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Screens
+### Main
+This screen details some information on what to do depending on whether the user is logged in. Main purpose is to guide the user to click the Login button.
 
-### `yarn test`
+### Login
+This screen displays a Username field to allow users to enter their username for authentication (no password is necessary). If the username is not recognised, an error will show, suggesting the user to register. There will be a text and link to the Registration page. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Register
+This page will have a form to fill with several fields, namely the Username and the IC/Passport photo. All fields will be validated for values. The IC/Passport photo field will be a click or drag & drop component for file uploads. Only 3 image file types will be accepted. A preview of the image will be displayed. Once registered, a notification/message will display a success and a link to the Inside page will be displayed.
 
-### `yarn build`
+### Inside
+This page is only accessible if the user is logged in. It will display the details of the registration submission.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Other
+Only the Main and Inside screen will have the user login/logout card on the right of the page header.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Every screen will have a navbar on top with the Regov logo and links to the Main and Inside screens. The Inside screen will only display if the user is authenticated.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Notes
+* Actions that should in reality require a fetch action/communication to the server will be simulated with a 1 second wait. 
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

@@ -24,9 +24,28 @@ function AuthRoute({ children, ...props }) {
 	const user = UserContainer.useContainer();
 
 	return (
-		user.isAuth === true ? <Route {...props}>
+		user.isUserAuthenticated() ? <Route {...props}>
 			{children}
 		</Route> : <Redirect to="/login" />
+	)
+}
+
+function AppRoutes() {
+	return (
+		<Switch>
+			<Route path="/login">
+				<Login />
+			</Route>
+			<Route path="/register">
+				<Register />
+			</Route>
+			<AuthRoute path="/inside">
+				<Inside />
+			</AuthRoute>
+			<Route path="/">
+				<Main />
+			</Route>
+		</Switch>
 	)
 }
 
@@ -51,36 +70,22 @@ function AppWithRouter() {
 						<Nav className="mr-auto">
 							<Nav.Link as={Link} to="/main">Main</Nav.Link>
 							{
-								user.isAuth === true ? <Nav.Link as={Link} to="/inside">
+								user.isUserAuthenticated() ? <Nav.Link as={Link} to="/inside" data-testid="link-to-inside">
 									Inside
 								</Nav.Link> : null
 							}
 						</Nav>
 					</Navbar.Collapse>
 				</Navbar>
-
-				<Switch>
-					<Route path="/login">
-						<Login />
-					</Route>
-					<Route path="/register">
-						<Register />
-					</Route>
-					<AuthRoute path="/inside">
-						<Inside />
-					</AuthRoute>
-					<Route path="/">
-						<Main />
-					</Route>
-				</Switch>
+				<AppRoutes />
 			</Router>
 		</Container>
 	)
 }
 
-function App() {
+function App({initialUserState}) {
 	return (
-		<UserContainer.Provider>
+		<UserContainer.Provider initialState={initialUserState}>
 			<AppWithRouter />
 		</UserContainer.Provider>
 	);

@@ -9,9 +9,9 @@ import {
     keyStore_icpassport
 } from '../Config/User';
 
-function useUser() {
+function useUser(initialState) {
 
-    let [isAuth, setIsAuth] = useState(sessionStorage.getItem(keyStore_isAuth) || false);
+    let [isAuth, setIsAuth] = useState((initialState && initialState.isAuth) || sessionStorage.getItem(keyStore_isAuth) || false);
     let [username, setUsername] = useState(sessionStorage.getItem(keyStore_username) || defaultUsername);
     let [callsign, setCallsign] = useState(sessionStorage.getItem(keyStore_callsign) || '');
     let [icpassport, setIcpassport] = useState(sessionStorage.getItem(keyStore_icpassport) || null);
@@ -96,8 +96,15 @@ function useUser() {
         
     }
 
+    function isUserAuthenticated() {
+        if (isAuth === true) {
+            return true;
+        }
+        return false;
+    }
+
     return {
-        isAuth,
+        isUserAuthenticated,
         login, logout,
         username,
         register,

@@ -94,10 +94,11 @@ export default function FileDragDropBox({ multiFile, acceptedFileTypes, setFilte
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}
                 onClick={handleClick}
+                data-testid="file-drop-box"
             >
                 <FontAwesomeIcon icon={faUpload} size="5x" />
                 <span><b>Click or Drop your file here</b></span>
-                <input type="file" ref={inputFileRef} multiple onChange={(evt) => setFiles(evt.target.files)} />
+                <input type="file" ref={inputFileRef} multiple onChange={(evt) => setFiles(evt.target.files)} data-testid="file-field" />
             </div>
         </>
 
