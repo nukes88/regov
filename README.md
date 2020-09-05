@@ -5,7 +5,10 @@
 * Used [react-bootstrap](https://react-bootstrap.github.io/) for layout components
 * Used [font-awesome](https://fontawesome.com/how-to-use/on-the-web/using-with/react) for some icons
 
-# Design Spec
+## Instructions
+Run `yarn` to install dependencies then `yarn start`
+
+# Design Doc
 ## Overview
 This Regov demo is to allow a user to register themselves. Login/logout based on the username chosen. Once logged in, the user will be able to see their registration details.
 
