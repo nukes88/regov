@@ -108,7 +108,9 @@ function useUser(initialState) {
         try {
             let res = await waitFor(1000);
             if (res.ok) {
-                return JSON.parse(sessionStorage.getItem(keyStore_registrationDetails));
+                let details = JSON.parse(sessionStorage.getItem(keyStore_registrationDetails));
+                setRegistrationDetails(details);
+                return details;
             } else {
                 throw new Error(res.statusText)
             }
