@@ -10,7 +10,7 @@ import {
 } from '../Config/User';
 
 function useUser(initialState) {
-console.log(sessionStorage.getItem(keyStore_isAuth));
+
     let [isAuth, setIsAuth] = useState((initialState && initialState.isAuth) || sessionStorage.getItem(keyStore_isAuth) === 'y' || false);
     let [username, setUsername] = useState(sessionStorage.getItem(keyStore_username) || defaultUsername);
     let [callsign, setCallsign] = useState(sessionStorage.getItem(keyStore_callsign) || '');
