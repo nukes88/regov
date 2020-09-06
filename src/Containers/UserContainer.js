@@ -10,8 +10,8 @@ import {
 } from '../Config/User';
 
 function useUser(initialState) {
-
-    let [isAuth, setIsAuth] = useState((initialState && initialState.isAuth) || sessionStorage.getItem(keyStore_isAuth) || false);
+console.log(sessionStorage.getItem(keyStore_isAuth));
+    let [isAuth, setIsAuth] = useState((initialState && initialState.isAuth) || sessionStorage.getItem(keyStore_isAuth) === 'y' || false);
     let [username, setUsername] = useState(sessionStorage.getItem(keyStore_username) || defaultUsername);
     let [callsign, setCallsign] = useState(sessionStorage.getItem(keyStore_callsign) || '');
     let [icpassport, setIcpassport] = useState(sessionStorage.getItem(keyStore_icpassport) || null);
@@ -52,11 +52,16 @@ function useUser(initialState) {
             setUsername(registrationDetails.username);
             setCallsign(registrationDetails.callsign);
             setIcpassport(registrationDetails.icpassport);
+
+            sessionStorage.setItem(keyStore_isAuth, 'y');
+            sessionStorage.setItem(keyStore_username, registrationDetails.username);
+            sessionStorage.setItem(keyStore_callsign, registrationDetails.callsign);
+            sessionStorage.setItem(keyStore_icpassport, registrationDetails.icpassport);
         }
     }
 
     function logout() {
-        sessionStorage.setItem(keyStore_isAuth, false);
+        sessionStorage.setItem(keyStore_isAuth, 'n');
         setIsAuth(false);
     }
 
@@ -88,7 +93,7 @@ function useUser(initialState) {
                 setIcpassport(photoBase64);
                 setRegistrationDetails(newRegDetails);
 
-                sessionStorage.setItem(keyStore_isAuth, true);
+                sessionStorage.setItem(keyStore_isAuth, 'y');
                 sessionStorage.setItem(keyStore_username, info.username);
                 sessionStorage.setItem(keyStore_callsign, info.callsign);
                 sessionStorage.setItem(keyStore_icpassport, photoBase64);

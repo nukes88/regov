@@ -32,7 +32,7 @@ test('navbar link to inside only available on authentication', () => {
 
 test('will call URL.createObjectURL when file is uploaded', async () => {
   // when a file is uploaded
-  // useEffect will call URL.createObjectURL to be passed to an img as src
+  // useEffect will call URL.createObjectURL to be passed to an img as src for upload preview
 
   const {getByTestId} = render(
     <UserContainer.Provider>
