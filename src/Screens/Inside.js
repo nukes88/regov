@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import HeaderWithUser from '../Components/HeaderWithUser';
-import { Row, Col, Form, Spinner } from 'react-bootstrap';
+import { Row, Col, Form, Spinner, Alert } from 'react-bootstrap';
 import { UserContainer } from '../Containers/UserContainer';
 import RegistrationDetails from '../Components/RegistrationDetails';
 
@@ -46,15 +46,17 @@ export default function Inside() {
             <hr />
             <h3>Your Submission</h3>
             {
+                error ? <Alert variant="danger">{error}</Alert> : null
+            }
+            {
                 isLoading ? <Spinner animation="border" />
                 : <Row>
                     <Col>
                         <Form.Group>
                             {
-                                regDetails === null ? 'You have no submissions.' :
-                                    <RegistrationDetails
-                                        {...regDetails}
-                                    />
+                                regDetails ? <RegistrationDetails
+                                    {...regDetails}
+                                /> : 'You have no submissions.'
                             }
                         </Form.Group>
                     </Col>

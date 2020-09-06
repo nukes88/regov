@@ -35,6 +35,7 @@ function useUser(initialState) {
                 if (username === _username) {
                     hydrate();
                     setIsAuth(true);
+                    sessionStorage.setItem(keyStore_isAuth, 'y');
                 } else {
                     throw new Error('User not found!')
                 }
@@ -53,7 +54,6 @@ function useUser(initialState) {
             setCallsign(registrationDetails.callsign);
             setIcpassport(registrationDetails.icpassport);
 
-            sessionStorage.setItem(keyStore_isAuth, 'y');
             sessionStorage.setItem(keyStore_username, registrationDetails.username);
             sessionStorage.setItem(keyStore_callsign, registrationDetails.callsign);
             sessionStorage.setItem(keyStore_icpassport, registrationDetails.icpassport);
